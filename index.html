@@ -2,6 +2,16 @@
 <html lang="en" class="text-gray-900 antialiased leading-tight">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158637929-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-158637929-1');
+  </script>
+
   <title>Good JS | JavaScript Best Practices</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
@@ -9,7 +19,8 @@
 
 <body class="min-h-screen bg-gray-200 text-gray-800">
 
-  <h1 class="text-4xl font-bold text-center my-10">JavaScript Best Practices</h1>
+  <h1 class="text-4xl font-bold text-center my-10">Good JS</h1>
+  <h2 class="text-3xl font-bold text-center my-10">JavaScript Best Practices & Style Guide</h2>
 
   <div id="list">
     <div v-for="item in items" :id="item.slug" class="rounded bg-gray-300 m-5">

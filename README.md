@@ -1,1 +1,2 @@
-# JavaScript Best Practices
+# Good JS
+## JavaScript Best Practices & Style Guide

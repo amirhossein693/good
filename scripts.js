@@ -121,6 +121,26 @@ for(var i = 0, len = someArray.length; i < len;  i++) {
 }`
       ]
     }
+  },
+  {
+    title: 'Use Array push instead of direct assignment to add items to an array.',
+    slug: 'use-array-push-instead-of-direct-assignment',
+    refs: [{
+      title: 'airbnb',
+      url: 'https://github.com/airbnb/javascript'
+    }],
+    do: {
+      codes: [
+`const someStack = [];
+someStack.push('abracadabra');`
+      ]
+    },
+    dont: {
+      codes: [
+`const someStack = [];
+someStack[someStack.length] = 'abracadabra';`
+      ]
+    }
   }
 ];
 

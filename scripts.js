@@ -141,6 +141,74 @@ someStack.push('abracadabra');`
 someStack[someStack.length] = 'abracadabra';`
       ]
     }
+  },
+  {
+    title: 'Use Template Literals',
+    slug: 'use-template-literals',
+    refs: [{
+      title: 'MDN Web Docs',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals'
+    }],
+    do: {
+      description: 'Use template literals for string interpolation and concatenation.',
+      codes: [
+        'const name = "John";',
+        'const age = 30;',
+        'const sentence = `My name is ${name} and I am ${age} years old.`;',
+      ]
+    },
+    dont: {
+      description: 'Avoid using concatenation with the + operator.',
+      codes: [
+        'const name = "John";',
+        'const age = 30;',
+        'const sentence = "My name is " + name + " and I am " + age + " years old.";',
+      ]
+    }
+  },
+  {
+    title: 'Use Arrow Functions',
+    slug: 'use-arrow-functions',
+    refs: [{
+      title: 'MDN Web Docs',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions'
+    }],
+    do: {
+      description: 'Use arrow functions for concise and readable function expressions.',
+      codes: [
+        'const add = (a, b) => a + b;',
+      ]
+    },
+    dont: {
+      description: 'Avoid using verbose function expressions.',
+      codes: [
+        'const add = function(a, b) {',
+        '  return a + b;',
+        '};',
+      ]
+    }
+  },
+  {
+    title: 'Use Const and Let',
+    slug: 'use-const-and-let',
+    refs: [{
+      title: 'MDN Web Docs',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const'
+    }],
+    do: {
+      description: 'Use const and let for variable declarations.',
+      codes: [
+        'const PI = 3.14;',
+        'let name = "John";',
+      ]
+    },
+    dont: {
+      description: 'Avoid using var for variable declarations.',
+      codes: [
+        'var PI = 3.14;',
+        'var name = "John";',
+      ]
+    }
   }
 ];
 

@@ -121,11 +121,11 @@
       <!-- Navigation for screen readers -->
       <nav aria-label="Best practices navigation" class="mt-6">
         <ul class="flex flex-wrap justify-center gap-4 text-sm">
-          <li><a href="#core-practices" class="text-blue-600 hover:text-blue-800">Core JavaScript</a></li>
-          <li><a href="#async-practices" class="text-blue-600 hover:text-blue-800">Async Programming</a></li>
-          <li><a href="#performance-practices" class="text-blue-600 hover:text-blue-800">Performance</a></li>
-          <li><a href="#security-practices" class="text-blue-600 hover:text-blue-800">Security</a></li>
-          <li><a href="#quality-practices" class="text-blue-600 hover:text-blue-800">Code Quality</a></li>
+          <li><a href="#core-javascript" class="text-blue-600 hover:text-blue-800">Core JavaScript</a></li>
+          <li><a href="#async-programming" class="text-blue-600 hover:text-blue-800">Async Programming</a></li>
+          <li><a href="#performance" class="text-blue-600 hover:text-blue-800">Performance</a></li>
+          <li><a href="#security" class="text-blue-600 hover:text-blue-800">Security</a></li>
+          <li><a href="#code-quality" class="text-blue-600 hover:text-blue-800">Code Quality</a></li>
         </ul>
       </nav>
     </div>
@@ -133,11 +133,39 @@
 
   <!-- Main Content -->
   <main role="main" class="container mx-auto px-4 py-8">
+    <!-- Core JavaScript Section -->
+    <section id="core-javascript" class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Core JavaScript Practices</h2>
+    </section>
+
+    <!-- Async Programming Section -->
+    <section id="async-programming" class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Async Programming</h2>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Performance & Memory</h2>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Security & Validation</h2>
+    </section>
+
+    <!-- Code Quality Section -->
+    <section id="code-quality" class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Code Quality & Organization</h2>
+    </section>
+
     <div id="list">
-      <article v-for="item in items" :id="item.slug" class="rounded bg-gray-300 m-5" 
-               :aria-labelledby="'title-' + item.slug" 
-               :aria-describedby="'desc-' + item.slug"
-               itemscope itemtype="https://schema.org/HowTo">
+      <!-- Group items by category -->
+      <div v-for="category in categories" :key="category.id" class="mb-16">
+        <div v-for="item in getItemsByCategory(category.id)" :key="item.slug">
+          <article :id="item.slug" class="rounded bg-gray-300 m-5" 
+                   :aria-labelledby="'title-' + item.slug" 
+                   :aria-describedby="'desc-' + item.slug"
+                   itemscope itemtype="https://schema.org/HowTo">
 
         <!-- Practice Title -->
         <header class="pt-5 pl-10">
@@ -216,9 +244,11 @@
               #{{ ref.title }}
             </a>
           </div>
-        </footer>
+          </footer>
 
-      </article>
+          </article>
+        </div>
+      </div>
     </div>
   </main>
 

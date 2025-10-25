@@ -2,6 +2,7 @@ const items = [
   {
     title: 'Use === Comparison',
     slug: 'use-===-comparison',
+    category: 'core-javascript',
     refs: [{
       title: 'w3schools',
       url: 'https://w3schools.com/'
@@ -26,6 +27,7 @@ const items = [
   {
     title: "Don't Use new Object()",
     slug: "dont-use-new-object",
+    category: 'core-javascript',
     refs: [{
       title: 'w3schools',
       url: 'https://w3schools.com/'
@@ -56,6 +58,7 @@ const items = [
   {
     title: 'Declare Variables Outside of the For Statement',
     slug: 'declare-variables-outside-of-the-for-statement',
+    category: 'core-javascript',
     refs: [{
       title: 'tutsplus',
       url: 'https://code.tutsplus.com/tutorials/24-javascript-best-practices-for-beginners--net-5399'
@@ -84,6 +87,7 @@ for(var i = 0, len = someArray.length; i < len;  i++) {
   {
     title: 'End Your Switches with Defaults',
     slug: 'end-your-switches-with-defaults',
+    category: 'core-javascript',
     description: 'Always end your switch statements with a default. Even if you think there is no need for it.',
     refs: [{
       title: 'w3schools',
@@ -125,6 +129,7 @@ for(var i = 0, len = someArray.length; i < len;  i++) {
   {
     title: 'Use Array push instead of direct assignment to add items to an array.',
     slug: 'use-array-push-instead-of-direct-assignment',
+    category: 'core-javascript',
     refs: [{
       title: 'airbnb',
       url: 'https://github.com/airbnb/javascript'
@@ -145,6 +150,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Template Literals',
     slug: 'use-template-literals',
+    category: 'core-javascript',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals'
@@ -169,6 +175,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Arrow Functions',
     slug: 'use-arrow-functions',
+    category: 'core-javascript',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions'
@@ -191,6 +198,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Const and Let',
     slug: 'use-const-and-let',
+    category: 'core-javascript',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const'
@@ -213,6 +221,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Destructuring Assignment',
     slug: 'use-destructuring-assignment',
+    category: 'core-javascript',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment'
@@ -238,6 +247,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Spread and Rest Operators',
     slug: 'use-spread-and-rest-operators',
+    category: 'core-javascript',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax'
@@ -263,6 +273,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Async/Await Instead of Promises',
     slug: 'use-async-await-instead-of-promises',
+    category: 'async-programming',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function'
@@ -296,6 +307,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Handle Errors Properly',
     slug: 'handle-errors-properly',
+    category: 'async-programming',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling'
@@ -327,6 +339,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Optional Chaining and Nullish Coalescing',
     slug: 'use-optional-chaining-and-nullish-coalescing',
+    category: 'core-javascript',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining'
@@ -351,6 +364,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Array Methods Instead of Loops',
     slug: 'use-array-methods-instead-of-loops',
+    category: 'performance',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array'
@@ -383,6 +397,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Object.freeze() for Immutability',
     slug: 'use-object-freeze-for-immutability',
+    category: 'code-quality',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze'
@@ -411,6 +426,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Default Parameters',
     slug: 'use-default-parameters',
+    category: 'core-javascript',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters'
@@ -445,6 +461,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Modules and Import/Export',
     slug: 'use-modules-and-import-export',
+    category: 'code-quality',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules'
@@ -478,6 +495,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use WeakMap and WeakSet for Memory Management',
     slug: 'use-weakmap-and-weakset-for-memory-management',
+    category: 'performance',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap'
@@ -515,6 +533,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Function Composition',
     slug: 'use-function-composition',
+    category: 'code-quality',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions'
@@ -557,6 +576,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Event Delegation',
     slug: 'use-event-delegation',
+    category: 'performance',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener'
@@ -594,6 +614,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use RequestAnimationFrame for Animations',
     slug: 'use-requestanimationframe-for-animations',
+    category: 'performance',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame'
@@ -634,6 +655,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Debouncing and Throttling',
     slug: 'use-debouncing-and-throttling',
+    category: 'performance',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener'
@@ -670,6 +692,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Sanitize User Input',
     slug: 'sanitize-user-input',
+    category: 'security',
     refs: [{
       title: 'OWASP',
       url: 'https://owasp.org/www-community/attacks/xss/'
@@ -697,6 +720,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use HTTPS and Secure Cookies',
     slug: 'use-https-and-secure-cookies',
+    category: 'security',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies'
@@ -721,6 +745,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Validate Data Types and Structure',
     slug: 'validate-data-types-and-structure',
+    category: 'security',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof'
@@ -755,6 +780,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Strict Mode',
     slug: 'use-strict-mode',
+    category: 'code-quality',
     refs: [{
       title: 'MDN Web Docs',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode'
@@ -785,6 +811,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Meaningful Variable Names',
     slug: 'use-meaningful-variable-names',
+    category: 'code-quality',
     refs: [{
       title: 'Clean Code',
       url: 'https://cleancoders.com/'
@@ -817,6 +844,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Write Pure Functions',
     slug: 'write-pure-functions',
+    category: 'code-quality',
     refs: [{
       title: 'Functional Programming',
       url: 'https://en.wikipedia.org/wiki/Functional_programming'
@@ -857,6 +885,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Consistent Code Formatting',
     slug: 'use-consistent-code-formatting',
+    category: 'code-quality',
     refs: [{
       title: 'Prettier',
       url: 'https://prettier.io/'
@@ -888,6 +917,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use JSDoc for Documentation',
     slug: 'use-jsdoc-for-documentation',
+    category: 'code-quality',
     refs: [{
       title: 'JSDoc',
       url: 'https://jsdoc.app/'
@@ -922,6 +952,7 @@ someStack[someStack.length] = 'abracadabra';`
   {
     title: 'Use Environment Variables for Configuration',
     slug: 'use-environment-variables-for-configuration',
+    category: 'code-quality',
     refs: [{
       title: '12-Factor App',
       url: 'https://12factor.net/config'
@@ -951,13 +982,28 @@ someStack[someStack.length] = 'abracadabra';`
   }
 ];
 
+// Categories for organizing practices
+const categories = [
+  { id: 'core-javascript', name: 'Core JavaScript', description: 'Fundamental JavaScript syntax and modern ES6+ features' },
+  { id: 'async-programming', name: 'Async Programming', description: 'Asynchronous JavaScript patterns and error handling' },
+  { id: 'performance', name: 'Performance & Memory', description: 'Optimization techniques and memory management' },
+  { id: 'security', name: 'Security & Validation', description: 'Security best practices and input validation' },
+  { id: 'code-quality', name: 'Code Quality', description: 'Clean code principles and development practices' }
+];
+
 (function () {
   "use strict";
 
   const list = new Vue({
     el: '#list',
     data: {
-      items
+      items,
+      categories
+    },
+    methods: {
+      getItemsByCategory(categoryId) {
+        return this.items.filter(item => item.category === categoryId);
+      }
     }
   });
 

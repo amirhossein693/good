@@ -133,34 +133,16 @@
 
   <!-- Main Content -->
   <main role="main" class="container mx-auto px-4 py-8">
-    <!-- Core JavaScript Section -->
-    <section id="core-javascript" class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Core JavaScript Practices</h2>
-    </section>
-
-    <!-- Async Programming Section -->
-    <section id="async-programming" class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Async Programming</h2>
-    </section>
-
-    <!-- Performance Section -->
-    <section id="performance" class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Performance & Memory</h2>
-    </section>
-
-    <!-- Security Section -->
-    <section id="security" class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Security & Validation</h2>
-    </section>
-
-    <!-- Code Quality Section -->
-    <section id="code-quality" class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Code Quality & Organization</h2>
-    </section>
-
     <div id="list">
       <!-- Group items by category -->
       <div v-for="category in categories" :key="category.id" class="mb-16">
+        <!-- Category Header -->
+        <div :id="category.id" class="mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">{{ category.name }}</h2>
+          <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto">{{ category.description }}</p>
+        </div>
+        
+        <!-- Category Items -->
         <div v-for="item in getItemsByCategory(category.id)" :key="item.slug">
           <article :id="item.slug" class="rounded bg-gray-300 m-5" 
                    :aria-labelledby="'title-' + item.slug" 

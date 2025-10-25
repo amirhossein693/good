@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="text-gray-900 antialiased leading-tight">
+<html lang="en" class="text-gray-900 antialiased leading-tight" itemscope itemtype="https://schema.org/WebSite">
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -12,90 +12,274 @@
     gtag('config', 'UA-158637929-1');
   </script>
 
-  <title>Good JS | JavaScript Best Practices</title>
+  <!-- Primary Meta Tags -->
+  <title>Good JS | JavaScript Best Practices & Style Guide - 25+ Interactive Examples</title>
+  <meta name="title" content="Good JS | JavaScript Best Practices & Style Guide - 25+ Interactive Examples">
+  <meta name="description" content="Learn JavaScript best practices with interactive examples. 25+ modern coding standards including ES6+, security, performance, and code quality guidelines. Free educational resource for developers.">
+  <meta name="keywords" content="javascript best practices, js coding standards, es6 javascript, javascript tutorial, coding guidelines, javascript security, performance optimization, clean code, vue.js, tailwind css">
+  <meta name="author" content="Amirhossein">
+  <meta name="robots" content="index, follow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f2937">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amirhossein693.github.io/good/">
+  <meta property="og:title" content="Good JS | JavaScript Best Practices & Style Guide">
+  <meta property="og:description" content="Learn JavaScript best practices with interactive examples. 25+ modern coding standards including ES6+, security, performance, and code quality guidelines.">
+  <meta property="og:image" content="https://amirhossein693.github.io/good/og-image.png">
+  <meta property="og:site_name" content="Good JS">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://amirhossein693.github.io/good/">
+  <meta property="twitter:title" content="Good JS | JavaScript Best Practices & Style Guide">
+  <meta property="twitter:description" content="Learn JavaScript best practices with interactive examples. 25+ modern coding standards including ES6+, security, performance, and code quality guidelines.">
+  <meta property="twitter:image" content="https://amirhossein693.github.io/good/og-image.png">
+
+  <!-- Additional SEO Meta Tags -->
+  <meta name="application-name" content="Good JS">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Good JS">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="msapplication-TileColor" content="#1f2937">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://amirhossein693.github.io/good/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <!-- Stylesheets -->
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Good JS",
+    "alternateName": "JavaScript Best Practices Guide",
+    "url": "https://amirhossein693.github.io/good/",
+    "description": "A comprehensive JavaScript best practices guide with interactive examples and modern coding standards",
+    "author": {
+      "@type": "Person",
+      "name": "Amirhossein",
+      "url": "https://github.com/amirhossein693"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Good JS",
+      "url": "https://amirhossein693.github.io/good/"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://amirhossein693.github.io/good/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "mainEntity": {
+      "@type": "EducationalResource",
+      "name": "JavaScript Best Practices",
+      "description": "Interactive guide to JavaScript best practices with 25+ examples",
+      "educationalLevel": "beginner to advanced",
+      "learningResourceType": "tutorial",
+      "teaches": [
+        "JavaScript programming",
+        "ES6+ features",
+        "Code quality",
+        "Security best practices",
+        "Performance optimization"
+      ]
+    }
+  }
+  </script>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 </head>
 
 <body class="min-h-screen bg-gray-200 text-gray-800">
 
-  <h1 class="text-4xl font-bold text-center my-10">Good JS</h1>
-  <h2 class="text-3xl font-bold text-center my-10">JavaScript Best Practices & Style Guide</h2>
-
-  <div id="list">
-    <div v-for="item in items" :id="item.slug" class="rounded bg-gray-300 m-5">
-
-      <h2 class="text-2xl pt-5 pl-10 font-bold">{{ item.title }}</h2>
-      <div class="text-lg pl-10 text-gray-700">{{ item.description }}</div>
-      <div class="flex flex-wrap">
-        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
-          <div class="bg-white m-5 rounded overflow-hidden shadow-lg">
-            <div class="px-6 py-4">
-              <div class="font-bold">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"
-                  class="stroke-current text-green-500 inline-block h-6 w-6">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                Do
-              </div>
-            </div>
-            <pre
-              class="block px-6 py-4 bg-gray-800 text-gray-500 overflow-x-auto"><template v-for="code in item.do.codes">{{ code }}&#13;</template></pre>
-            <div v-if="item.do.description" class="px-6 py-4">
-              <p class="text-gray-700 text-base">
-                {{ item.do.description }}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
-          <div class="bg-white m-5 rounded overflow-hidden shadow-lg">
-            <div class="px-6 py-4">
-              <div class="font-bold">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"
-                  class="stroke-current text-red-500 inline-block h-6 w-6">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
-                </svg>
-                Don't
-              </div>
-            </div>
-            <pre
-              class="block px-6 py-4 bg-gray-800 text-gray-500"><template v-for="code in item.dont.codes">{{ code }}&#13;</template></pre>
-            <div v-if="item.do.description" class="px-6 py-4">
-              <p class="text-gray-700 text-base">
-                {{ item.dont.description }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pl-10 pb-5">
-        <a v-for="ref in item.refs" :href="ref.url"
-          class="bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2">#{{ ref.title }}</a>
-      </div>
-
+  <!-- Header Section -->
+  <header role="banner" class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold text-center text-gray-900 mb-4" itemprop="name">Good JS</h1>
+      <h2 class="text-3xl font-bold text-center text-gray-700 mb-2">JavaScript Best Practices & Style Guide</h2>
+      <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto">
+        Learn JavaScript best practices with interactive examples. 25+ modern coding standards including ES6+, security, performance, and code quality guidelines. Free educational resource for developers of all levels.
+      </p>
+      
+      <!-- Navigation for screen readers -->
+      <nav aria-label="Best practices navigation" class="mt-6">
+        <ul class="flex flex-wrap justify-center gap-4 text-sm">
+          <li><a href="#core-practices" class="text-blue-600 hover:text-blue-800">Core JavaScript</a></li>
+          <li><a href="#async-practices" class="text-blue-600 hover:text-blue-800">Async Programming</a></li>
+          <li><a href="#performance-practices" class="text-blue-600 hover:text-blue-800">Performance</a></li>
+          <li><a href="#security-practices" class="text-blue-600 hover:text-blue-800">Security</a></li>
+          <li><a href="#quality-practices" class="text-blue-600 hover:text-blue-800">Code Quality</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-  </div>
+  </header>
 
-  <div class="text-center my-10 text-gray-400">
-    Will be Completed
-  </div>
-  <div class="text-center my-10">
-    <a target="_blank" href="https://github.com/amirhossein693/good/">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" class="stroke-current inline-block h-8 w-8">
-        >
-        <path
-          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-        </path>
-      </svg>
-    </a>
-  </div>
+  <!-- Main Content -->
+  <main role="main" class="container mx-auto px-4 py-8">
+    <div id="list">
+      <article v-for="item in items" :id="item.slug" class="rounded bg-gray-300 m-5" 
+               :aria-labelledby="'title-' + item.slug" 
+               :aria-describedby="'desc-' + item.slug"
+               itemscope itemtype="https://schema.org/HowTo">
+
+        <!-- Practice Title -->
+        <header class="pt-5 pl-10">
+          <h2 :id="'title-' + item.slug" class="text-2xl font-bold text-gray-900" itemprop="name">{{ item.title }}</h2>
+          <p :id="'desc-' + item.slug" class="text-lg text-gray-700 mt-2" itemprop="description">{{ item.description }}</p>
+        </header>
+
+        <!-- Practice Examples -->
+        <section class="flex flex-wrap" aria-label="Code examples for {{ item.title }}">
+          <!-- Do Example -->
+          <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
+            <div class="bg-white m-5 rounded overflow-hidden shadow-lg" role="region" aria-labelledby="do-title">
+              <header class="px-6 py-4 bg-green-50">
+                <h3 id="do-title" class="font-bold text-green-800 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="stroke-current text-green-500 inline-block h-6 w-6 mr-2" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Do - Best Practice
+                </h3>
+              </header>
+              <div class="px-6 py-4">
+                <pre class="block bg-gray-800 text-gray-100 overflow-x-auto rounded p-4" 
+                     role="code" 
+                     aria-label="Recommended code example">
+<template v-for="code in item.do.codes">{{ code }}&#13;</template></pre>
+                <div v-if="item.do.description" class="mt-4">
+                  <p class="text-gray-700 text-base" itemprop="text">
+                    {{ item.do.description }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Don't Example -->
+          <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4">
+            <div class="bg-white m-5 rounded overflow-hidden shadow-lg" role="region" aria-labelledby="dont-title">
+              <header class="px-6 py-4 bg-red-50">
+                <h3 id="dont-title" class="font-bold text-red-800 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="stroke-current text-red-500 inline-block h-6 w-6 mr-2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+                  </svg>
+                  Don't - Anti-pattern
+                </h3>
+              </header>
+              <div class="px-6 py-4">
+                <pre class="block bg-gray-800 text-gray-100 overflow-x-auto rounded p-4" 
+                     role="code" 
+                     aria-label="Code to avoid example">
+<template v-for="code in item.dont.codes">{{ code }}&#13;</template></pre>
+                <div v-if="item.dont.description" class="mt-4">
+                  <p class="text-gray-700 text-base">
+                    {{ item.dont.description }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- References -->
+        <footer class="pl-10 pb-5">
+          <h4 class="sr-only">References and further reading</h4>
+          <div class="flex flex-wrap gap-2">
+            <a v-for="ref in item.refs" 
+               :href="ref.url"
+               :aria-label="'Learn more about ' + ref.title"
+               class="bg-gray-200 hover:bg-gray-300 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 transition-colors"
+               target="_blank" 
+               rel="noopener noreferrer">
+              #{{ ref.title }}
+            </a>
+          </div>
+        </footer>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo" class="bg-gray-800 text-white py-12 mt-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- About Section -->
+        <div>
+          <h3 class="text-xl font-bold mb-4">About Good JS</h3>
+          <p class="text-gray-300 mb-4">
+            A comprehensive JavaScript best practices guide with interactive examples. 
+            Learn modern coding standards, security practices, and performance optimization techniques.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://github.com/amirhossein693/good" 
+               class="text-gray-300 hover:text-white transition-colors"
+               aria-label="View on GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#use-===-comparison" class="text-gray-300 hover:text-white transition-colors">Strict Equality</a></li>
+            <li><a href="#use-const-and-let" class="text-gray-300 hover:text-white transition-colors">Modern Variables</a></li>
+            <li><a href="#use-async-await-instead-of-promises" class="text-gray-300 hover:text-white transition-colors">Async/Await</a></li>
+            <li><a href="#sanitize-user-input" class="text-gray-300 hover:text-white transition-colors">Security</a></li>
+            <li><a href="#use-array-methods-instead-of-loops" class="text-gray-300 hover:text-white transition-colors">Performance</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h3 class="text-xl font-bold mb-4">Learning Resources</h3>
+          <ul class="space-y-2">
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" class="text-gray-300 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li>
+            <li><a href="https://github.com/airbnb/javascript" class="text-gray-300 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">Airbnb Style Guide</a></li>
+            <li><a href="https://owasp.org/" class="text-gray-300 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">OWASP Security</a></li>
+            <li><a href="https://web.dev/performance/" class="text-gray-300 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">Web Performance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-400 mb-4">
+          Made with ❤️ by <a href="https://github.com/amirhossein693" class="text-white hover:text-blue-300 transition-colors">Amirhossein</a>
+        </p>
+        <p class="text-sm text-gray-500">
+          © 2024 Good JS. Open source educational resource for JavaScript developers.
+        </p>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
   <script src="scripts.js"></script>

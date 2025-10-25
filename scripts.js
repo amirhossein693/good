@@ -979,6 +979,928 @@ someStack[someStack.length] = 'abracadabra';`
         '};',
       ]
     }
+  },
+  {
+    title: 'Use Proxies for Advanced Object Control',
+    slug: 'use-proxies-for-advanced-object-control',
+    category: 'core-javascript',
+    refs: [{
+      title: 'MDN Web Docs',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy'
+    }],
+    do: {
+      description: 'Use Proxy objects for advanced object property control and validation.',
+      codes: [
+        'const user = new Proxy({}, {',
+        '  set(target, property, value) {',
+        '    if (property === "age" && value < 0) {',
+        '      throw new Error("Age cannot be negative");',
+        '    }',
+        '    target[property] = value;',
+        '    return true;',
+        '  }',
+        '});',
+      ]
+    },
+    dont: {
+      description: 'Avoid manual property validation without Proxy.',
+      codes: [
+        'const user = {};',
+        'user.age = -5; // No validation',
+        'console.log(user.age); // -5 (invalid)',
+      ]
+    }
+  },
+  {
+    title: 'Use Symbol for Private Properties',
+    slug: 'use-symbol-for-private-properties',
+    category: 'core-javascript',
+    refs: [{
+      title: 'MDN Web Docs',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol'
+    }],
+    do: {
+      description: 'Use Symbols to create truly private object properties.',
+      codes: [
+        'const _private = Symbol("private");',
+        'class MyClass {',
+        '  constructor() {',
+        '    this[_private] = "secret data";',
+        '  }',
+        '  getPrivate() {',
+        '    return this[_private];',
+        '  }',
+        '}',
+      ]
+    },
+    dont: {
+      description: 'Avoid using string-based private properties.',
+      codes: [
+        'class MyClass {',
+        '  constructor() {',
+        '    this._private = "secret data"; // Not truly private',
+        '  }',
+        '}',
+        'const obj = new MyClass();',
+        'console.log(obj._private); // Accessible!',
+      ]
+    }
+  },
+  {
+    title: 'Use Generators for Iteration Control',
+    slug: 'use-generators-for-iteration-control',
+    category: 'core-javascript',
+    refs: [{
+      title: 'MDN Web Docs',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*'
+    }],
+    do: {
+      description: 'Use generator functions for custom iteration and lazy evaluation.',
+      codes: [
+        'function* fibonacci() {',
+        '  let [prev, curr] = [0, 1];',
+        '  while (true) {',
+        '    yield curr;',
+        '    [prev, curr] = [curr, prev + curr];',
+        '  }',
+        '}',
+        '',
+        'const fib = fibonacci();',
+        'console.log(fib.next().value); // 1',
+      ]
+    },
+    dont: {
+      description: 'Avoid creating infinite arrays for sequences.',
+      codes: [
+        'function fibonacci(n) {',
+        '  const result = [];',
+        '  for (let i = 0; i < n; i++) {',
+        '    result.push(/* calculate */);',
+        '  }',
+        '  return result; // Memory intensive',
+        '}',
+      ]
+    }
+  },
+  {
+    title: 'Use Map and Set for Better Performance',
+    slug: 'use-map-and-set-for-better-performance',
+    category: 'performance',
+    refs: [{
+      title: 'MDN Web Docs',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map'
+    }],
+    do: {
+      description: 'Use Map and Set for better performance with frequent additions/deletions.',
+      codes: [
+        'const userMap = new Map();',
+        'userMap.set("john", { name: "John", age: 30 });',
+        'userMap.set("jane", { name: "Jane", age: 25 });',
+        '',
+        'const uniqueIds = new Set();',
+        'uniqueIds.add("user1");',
+        'uniqueIds.add("user2");',
+      ]
+    },
+    dont: {
+      description: 'Avoid using objects for frequent key-value operations.',
+      codes: [
+        'const userObj = {};',
+        'userObj["john"] = { name: "John", age: 30 };',
+        'userObj["jane"] = { name: "Jane", age: 25 };',
+        '// Slower for frequent operations',
+      ]
+    }
+  },
+  {
+    title: 'Use Intersection Observer for Performance',
+    slug: 'use-intersection-observer-for-performance',
+    category: 'performance',
+    refs: [{
+      title: 'MDN Web Docs',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API'
+    }],
+    do: {
+      description: 'Use Intersection Observer for efficient scroll-based animations and lazy loading.',
+      codes: [
+        'const observer = new IntersectionObserver((entries) => {',
+        '  entries.forEach(entry => {',
+        '    if (entry.isIntersecting) {',
+        '      entry.target.classList.add("animate");',
+        '    }',
+        '  });',
+        '});',
+        '',
+        'document.querySelectorAll(".animate-on-scroll").forEach(el => {',
+        '  observer.observe(el);',
+        '});',
+      ]
+    },
+    dont: {
+      description: 'Avoid scroll event listeners for performance-critical operations.',
+      codes: [
+        'window.addEventListener("scroll", () => {',
+        '  // Expensive operations on every scroll',
+        '  document.querySelectorAll(".element").forEach(el => {',
+        '    // Check visibility manually',
+        '  });',
+        '});',
+      ]
+    }
+  },
+  {
+    title: 'Use Web Workers for Heavy Computations',
+    slug: 'use-web-workers-for-heavy-computations',
+    category: 'performance',
+    refs: [{
+      title: 'MDN Web Docs',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API'
+    }],
+    do: {
+      description: 'Use Web Workers to prevent blocking the main thread.',
+      codes: [
+        '// main.js',
+        'const worker = new Worker("worker.js");',
+        'worker.postMessage({ data: largeArray });',
+        'worker.onmessage = (e) => {',
+        '  console.log("Result:", e.data);',
+        '};',
+        '',
+        '// worker.js',
+        'self.onmessage = (e) => {',
+        '  const result = heavyComputation(e.data.data);',
+        '  self.postMessage(result);',
+        '};',
+      ]
+    },
+    dont: {
+      description: 'Avoid heavy computations on the main thread.',
+      codes: [
+        'function processLargeData(data) {',
+        '  // This blocks the UI',
+        '  return data.map(item => {',
+        '    // Heavy computation',
+        '    return complexCalculation(item);',
+        '  });',
+        '}',
+      ]
+    }
+  },
+  {
+    title: 'Use Service Workers for Caching',
+    slug: 'use-service-workers-for-caching',
+    category: 'performance',
+    refs: [{
+      title: 'MDN Web Docs',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API'
+    }],
+    do: {
+      description: 'Use Service Workers for intelligent caching and offline functionality.',
+      codes: [
+        '// sw.js',
+        'self.addEventListener("fetch", (event) => {',
+        '  if (event.request.url.includes("/api/")) {',
+        '    event.respondWith(',
+        '      caches.match(event.request).then(response => {',
+        '        return response || fetch(event.request);',
+        '      })',
+        '    );',
+        '  }',
+        '});',
+      ]
+    },
+    dont: {
+      description: 'Avoid making unnecessary network requests without caching.',
+      codes: [
+        'fetch("/api/data")',
+        '  .then(response => response.json())',
+        '  .then(data => {',
+        '    // No caching, repeated requests',
+        '  });',
+      ]
+    }
+  },
+  {
+    title: 'Use CSS-in-JS with Styled Components',
+    slug: 'use-css-in-js-with-styled-components',
+    category: 'code-quality',
+    refs: [{
+      title: 'Styled Components',
+      url: 'https://styled-components.com/'
+    }],
+    do: {
+      description: 'Use CSS-in-JS for component-scoped styling and dynamic themes.',
+      codes: [
+        'import styled from "styled-components";',
+        '',
+        'const Button = styled.button`',
+        '  background: ${props => props.primary ? "blue" : "gray"};',
+        '  color: white;',
+        '  padding: 1rem 2rem;',
+        '  border: none;',
+        '  border-radius: 4px;',
+        '`;',
+      ]
+    },
+    dont: {
+      description: 'Avoid global CSS classes for component-specific styling.',
+      codes: [
+        '// Global CSS',
+        '.button { background: blue; }',
+        '.button-primary { background: blue; }',
+        '.button-secondary { background: gray; }',
+      ]
+    }
+  },
+  {
+    title: 'Use TypeScript for Type Safety',
+    slug: 'use-typescript-for-type-safety',
+    category: 'code-quality',
+    refs: [{
+      title: 'TypeScript',
+      url: 'https://www.typescriptlang.org/'
+    }],
+    do: {
+      description: 'Use TypeScript for compile-time type checking and better IDE support.',
+      codes: [
+        'interface User {',
+        '  id: number;',
+        '  name: string;',
+        '  email: string;',
+        '}',
+        '',
+        'function getUser(id: number): Promise<User> {',
+        '  return fetch(`/api/users/${id}`).then(res => res.json());',
+        '}',
+      ]
+    },
+    dont: {
+      description: 'Avoid runtime type errors without compile-time checking.',
+      codes: [
+        'function getUser(id) {',
+        '  return fetch(`/api/users/${id}`).then(res => res.json());',
+        '}',
+        '// No type safety, potential runtime errors',
+      ]
+    }
+  },
+  {
+    title: 'Use ESLint for Code Quality',
+    slug: 'use-eslint-for-code-quality',
+    category: 'code-quality',
+    refs: [{
+      title: 'ESLint',
+      url: 'https://eslint.org/'
+    }],
+    do: {
+      description: 'Use ESLint to enforce coding standards and catch potential bugs.',
+      codes: [
+        '// .eslintrc.js',
+        'module.exports = {',
+        '  extends: ["eslint:recommended"],',
+        '  rules: {',
+        '    "no-unused-vars": "error",',
+        '    "no-console": "warn",',
+        '    "prefer-const": "error"',
+        '  }',
+        '};',
+      ]
+    },
+    dont: {
+      description: 'Avoid writing code without linting rules.',
+      codes: [
+        '// No linting configuration',
+        'var unusedVariable = "test";',
+        'console.log("Debug message");',
+        '// Potential issues not caught',
+      ]
+    }
+  },
+  {
+    title: 'Use Prettier for Code Formatting',
+    slug: 'use-prettier-for-code-formatting',
+    category: 'code-quality',
+    refs: [{
+      title: 'Prettier',
+      url: 'https://prettier.io/'
+    }],
+    do: {
+      description: 'Use Prettier for consistent code formatting across the team.',
+      codes: [
+        '// .prettierrc',
+        '{',
+        '  "semi": true,',
+        '  "trailingComma": "es5",',
+        '  "singleQuote": true,',
+        '  "printWidth": 80',
+        '}',
+      ]
+    },
+    dont: {
+      description: 'Avoid inconsistent formatting without automated tools.',
+      codes: [
+        'const obj={name:"John",age:30,email:"john@example.com"};',
+        'function test(){',
+        'return "inconsistent formatting";',
+        '}',
+      ]
+    }
+  },
+  {
+    title: 'Use Jest for Unit Testing',
+    slug: 'use-jest-for-unit-testing',
+    category: 'code-quality',
+    refs: [{
+      title: 'Jest',
+      url: 'https://jestjs.io/'
+    }],
+    do: {
+      description: 'Use Jest for comprehensive unit testing with mocking capabilities.',
+      codes: [
+        '// math.test.js',
+        'describe("Math utilities", () => {',
+        '  test("adds two numbers correctly", () => {',
+        '    expect(add(2, 3)).toBe(5);',
+        '  });',
+        '  ',
+        '  test("handles edge cases", () => {',
+        '    expect(add(0, 0)).toBe(0);',
+        '    expect(add(-1, 1)).toBe(0);',
+        '  });',
+        '});',
+      ]
+    },
+    dont: {
+      description: 'Avoid writing code without proper testing.',
+      codes: [
+        'function add(a, b) {',
+        '  return a + b;',
+        '}',
+        '// No tests, potential bugs not caught',
+      ]
+    }
+  },
+  {
+    title: 'Use Cypress for E2E Testing',
+    slug: 'use-cypress-for-e2e-testing',
+    category: 'code-quality',
+    refs: [{
+      title: 'Cypress',
+      url: 'https://www.cypress.io/'
+    }],
+    do: {
+      description: 'Use Cypress for end-to-end testing with real browser interactions.',
+      codes: [
+        '// cypress/integration/user.spec.js',
+        'describe("User Registration", () => {',
+        '  it("should register a new user", () => {',
+        '    cy.visit("/register");',
+        '    cy.get("[data-cy=email]").type("user@example.com");',
+        '    cy.get("[data-cy=password]").type("password123");',
+        '    cy.get("[data-cy=submit]").click();',
+        '    cy.url().should("include", "/dashboard");',
+        '  });',
+        '});',
+      ]
+    },
+    dont: {
+      description: 'Avoid manual testing for critical user flows.',
+      codes: [
+        '// Manual testing only',
+        '// 1. Open browser',
+        '// 2. Navigate to /register',
+        '// 3. Fill form manually',
+        '// 4. Check result manually',
+      ]
+    }
+  },
+  {
+    title: 'Use React Testing Library for Component Testing',
+    slug: 'use-react-testing-library-for-component-testing',
+    category: 'code-quality',
+    refs: [{
+      title: 'React Testing Library',
+      url: 'https://testing-library.com/docs/react-testing-library/intro/'
+    }],
+    do: {
+      description: 'Use React Testing Library for testing components from user perspective.',
+      codes: [
+        'import { render, screen, fireEvent } from "@testing-library/react";',
+        'import Button from "./Button";',
+        '',
+        'test("button calls onClick when clicked", () => {',
+        '  const handleClick = jest.fn();',
+        '  render(<Button onClick={handleClick}>Click me</Button>);',
+        '  ',
+        '  fireEvent.click(screen.getByText("Click me"));',
+        '  expect(handleClick).toHaveBeenCalledTimes(1);',
+        '});',
+      ]
+    },
+    dont: {
+      description: 'Avoid testing implementation details instead of behavior.',
+      codes: [
+        '// Testing implementation details',
+        'test("button has correct class", () => {',
+        '  const { container } = render(<Button />);',
+        '  expect(container.querySelector(".btn-primary")).toBeInTheDocument();',
+        '});',
+      ]
+    }
+  },
+  {
+    title: 'Use Webpack for Module Bundling',
+    slug: 'use-webpack-for-module-bundling',
+    category: 'code-quality',
+    refs: [{
+      title: 'Webpack',
+      url: 'https://webpack.js.org/'
+    }],
+    do: {
+      description: 'Use Webpack for efficient module bundling and asset optimization.',
+      codes: [
+        '// webpack.config.js',
+        'module.exports = {',
+        '  entry: "./src/index.js",',
+        '  output: {',
+        '    filename: "bundle.js",',
+        '    path: path.resolve(__dirname, "dist"),',
+        '  },',
+        '  module: {',
+        '    rules: [',
+        '      { test: /\\.js$/, use: "babel-loader" },',
+        '      { test: /\\.css$/, use: ["style-loader", "css-loader"] }',
+        '    ],',
+        '  },',
+        '};',
+      ]
+    },
+    dont: {
+      description: 'Avoid loading all scripts separately without bundling.',
+      codes: [
+        '<!-- Multiple script tags, no optimization -->',
+        '<script src="jquery.js"></script>',
+        '<script src="lodash.js"></script>',
+        '<script src="app.js"></script>',
+      ]
+    }
+  },
+  {
+    title: 'Use Babel for JavaScript Transpilation',
+    slug: 'use-babel-for-javascript-transpilation',
+    category: 'code-quality',
+    refs: [{
+      title: 'Babel',
+      url: 'https://babeljs.io/'
+    }],
+    do: {
+      description: 'Use Babel to transpile modern JavaScript for broader browser support.',
+      codes: [
+        '// .babelrc',
+        '{',
+        '  "presets": [',
+        '    ["@babel/preset-env", {',
+        '      "targets": {',
+        '        "browsers": ["> 1%", "last 2 versions"]',
+        '      }',
+        '    }]',
+        '  ]',
+        '}',
+      ]
+    },
+    dont: {
+      description: 'Avoid using modern JavaScript without transpilation.',
+      codes: [
+        '// Modern JavaScript without transpilation',
+        'const arrow = () => "modern syntax";',
+        'class MyClass {}',
+        '// May not work in older browsers',
+      ]
+    }
+  },
+  {
+    title: 'Use npm Scripts for Task Automation',
+    slug: 'use-npm-scripts-for-task-automation',
+    category: 'code-quality',
+    refs: [{
+      title: 'npm Scripts',
+      url: 'https://docs.npmjs.com/cli/v7/using-npm/scripts'
+    }],
+    do: {
+      description: 'Use npm scripts for consistent development and build tasks.',
+      codes: [
+        '// package.json',
+        '{',
+        '  "scripts": {',
+        '    "start": "webpack serve --mode development",',
+        '    "build": "webpack --mode production",',
+        '    "test": "jest",',
+        '    "lint": "eslint src/",',
+        '    "format": "prettier --write src/"',
+        '  }',
+        '}',
+      ]
+    },
+    dont: {
+      description: 'Avoid manual task execution without automation.',
+      codes: [
+        '// Manual commands every time',
+        '// webpack --mode production',
+        '// eslint src/',
+        '// prettier --write src/',
+        '// jest',
+      ]
+    }
+  },
+  {
+    title: 'Use Git Hooks for Code Quality',
+    slug: 'use-git-hooks-for-code-quality',
+    category: 'code-quality',
+    refs: [{
+      title: 'Git Hooks',
+      url: 'https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks'
+    }],
+    do: {
+      description: 'Use Git hooks to enforce code quality before commits.',
+      codes: [
+        '// .git/hooks/pre-commit',
+        '#!/bin/sh',
+        'npm run lint',
+        'npm run test',
+        'npm run build',
+        '',
+        'if [ $? -ne 0 ]; then',
+        '  echo "Pre-commit checks failed"',
+        '  exit 1',
+        'fi',
+      ]
+    },
+    dont: {
+      description: 'Avoid committing code without quality checks.',
+      codes: [
+        '// No pre-commit checks',
+        'git add .',
+        'git commit -m "Add feature"',
+        '// Potentially broken code committed',
+      ]
+    }
+  },
+  {
+    title: 'Use Docker for Consistent Environments',
+    slug: 'use-docker-for-consistent-environments',
+    category: 'code-quality',
+    refs: [{
+      title: 'Docker',
+      url: 'https://www.docker.com/'
+    }],
+    do: {
+      description: 'Use Docker to ensure consistent development and deployment environments.',
+      codes: [
+        '// Dockerfile',
+        'FROM node:16-alpine',
+        'WORKDIR /app',
+        'COPY package*.json ./',
+        'RUN npm ci --only=production',
+        'COPY . .',
+        'EXPOSE 3000',
+        'CMD ["npm", "start"]',
+      ]
+    },
+    dont: {
+      description: 'Avoid environment-specific issues without containerization.',
+      codes: [
+        '// "Works on my machine" problems',
+        '// Different Node versions',
+        '// Different OS dependencies',
+        '// Inconsistent environments',
+      ]
+    }
+  },
+  {
+    title: 'Use Environment-Specific Configuration',
+    slug: 'use-environment-specific-configuration',
+    category: 'code-quality',
+    refs: [{
+      title: '12-Factor App',
+      url: 'https://12factor.net/config'
+    }],
+    do: {
+      description: 'Use environment-specific configuration for different deployment stages.',
+      codes: [
+        '// config/development.js',
+        'module.exports = {',
+        '  database: "mongodb://localhost:27017/dev",',
+        '  apiUrl: "http://localhost:3000",',
+        '  debug: true',
+        '};',
+        '',
+        '// config/production.js',
+        'module.exports = {',
+        '  database: process.env.DATABASE_URL,',
+        '  apiUrl: process.env.API_URL,',
+        '  debug: false',
+        '};',
+      ]
+    },
+    dont: {
+      description: 'Avoid hardcoded configuration for different environments.',
+      codes: [
+        '// Hardcoded configuration',
+        'const config = {',
+        '  database: "mongodb://localhost:27017/myapp",',
+        '  apiUrl: "http://localhost:3000",',
+        '  debug: true',
+        '};',
+      ]
+    }
+  },
+  {
+    title: 'Use API Versioning for Backward Compatibility',
+    slug: 'use-api-versioning-for-backward-compatibility',
+    category: 'code-quality',
+    refs: [{
+      title: 'API Versioning',
+      url: 'https://restfulapi.net/versioning/'
+    }],
+    do: {
+      description: 'Use API versioning to maintain backward compatibility.',
+      codes: [
+        '// Version 1 API',
+        'app.get("/api/v1/users", (req, res) => {',
+        '  res.json({ users: [] });',
+        '});',
+        '',
+        '// Version 2 API',
+        'app.get("/api/v2/users", (req, res) => {',
+        '  res.json({',
+        '    data: [],',
+        '    meta: { version: "2.0" }',
+        '  });',
+        '});',
+      ]
+    },
+    dont: {
+      description: 'Avoid breaking changes without versioning.',
+      codes: [
+        '// Breaking change without versioning',
+        'app.get("/api/users", (req, res) => {',
+        '  // Changed response format - breaks existing clients',
+        '  res.json({ data: [] });',
+        '});',
+      ]
+    }
+  },
+  {
+    title: 'Use Rate Limiting for API Protection',
+    slug: 'use-rate-limiting-for-api-protection',
+    category: 'security',
+    refs: [{
+      title: 'Express Rate Limit',
+      url: 'https://expressjs.com/en/resources/middleware/rate-limit.html'
+    }],
+    do: {
+      description: 'Use rate limiting to protect APIs from abuse and DoS attacks.',
+      codes: [
+        'const rateLimit = require("express-rate-limit");',
+        '',
+        'const limiter = rateLimit({',
+        '  windowMs: 15 * 60 * 1000, // 15 minutes',
+        '  max: 100, // limit each IP to 100 requests per windowMs',
+        '  message: "Too many requests from this IP"',
+        '});',
+        '',
+        'app.use("/api/", limiter);',
+      ]
+    },
+    dont: {
+      description: 'Avoid unprotected APIs without rate limiting.',
+      codes: [
+        '// No rate limiting',
+        'app.get("/api/data", (req, res) => {',
+        '  // Vulnerable to abuse',
+        '  res.json(expensiveData);',
+        '});',
+      ]
+    }
+  },
+  {
+    title: 'Use CORS for Cross-Origin Requests',
+    slug: 'use-cors-for-cross-origin-requests',
+    category: 'security',
+    refs: [{
+      title: 'MDN CORS',
+      url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS'
+    }],
+    do: {
+      description: 'Use CORS to control cross-origin requests securely.',
+      codes: [
+        'const cors = require("cors");',
+        '',
+        'const corsOptions = {',
+        '  origin: ["https://myapp.com", "https://admin.myapp.com"],',
+        '  credentials: true,',
+        '  optionsSuccessStatus: 200',
+        '};',
+        '',
+        'app.use(cors(corsOptions));',
+      ]
+    },
+    dont: {
+      description: 'Avoid overly permissive CORS settings.',
+      codes: [
+        '// Too permissive',
+        'app.use(cors({',
+        '  origin: "*", // Allows any origin',
+        '  credentials: true // Security risk',
+        '}));',
+      ]
+    }
+  },
+  {
+    title: 'Use Helmet for Security Headers',
+    slug: 'use-helmet-for-security-headers',
+    category: 'security',
+    refs: [{
+      title: 'Helmet.js',
+      url: 'https://helmetjs.github.io/'
+    }],
+    do: {
+      description: 'Use Helmet to set security headers and protect against common vulnerabilities.',
+      codes: [
+        'const helmet = require("helmet");',
+        '',
+        'app.use(helmet({',
+        '  contentSecurityPolicy: {',
+        '    directives: {',
+        '      defaultSrc: ["\'self\'"],',
+        '      styleSrc: ["\'self\'", "\'unsafe-inline\'"]',
+        '    }',
+        '  }',
+        '}));',
+      ]
+    },
+    dont: {
+      description: 'Avoid missing security headers.',
+      codes: [
+        '// No security headers',
+        'app.get("/", (req, res) => {',
+        '  res.send("Hello World");',
+        '  // Missing X-Frame-Options, X-Content-Type-Options, etc.',
+        '});',
+      ]
+    }
+  },
+  {
+    title: 'Use bcrypt for Password Hashing',
+    slug: 'use-bcrypt-for-password-hashing',
+    category: 'security',
+    refs: [{
+      title: 'bcrypt',
+      url: 'https://www.npmjs.com/package/bcrypt'
+    }],
+    do: {
+      description: 'Use bcrypt for secure password hashing with salt.',
+      codes: [
+        'const bcrypt = require("bcrypt");',
+        '',
+        'async function hashPassword(password) {',
+        '  const saltRounds = 12;',
+        '  return await bcrypt.hash(password, saltRounds);',
+        '}',
+        '',
+        'async function verifyPassword(password, hash) {',
+        '  return await bcrypt.compare(password, hash);',
+        '}',
+      ]
+    },
+    dont: {
+      description: 'Avoid storing passwords in plain text or using weak hashing.',
+      codes: [
+        '// Never do this',
+        'const user = {',
+        '  username: "john",',
+        '  password: "password123" // Plain text!',
+        '};',
+        '',
+        '// Or weak hashing',
+        'const hash = crypto.createHash("md5").update(password).digest("hex");',
+      ]
+    }
+  },
+  {
+    title: 'Use JWT for Stateless Authentication',
+    slug: 'use-jwt-for-stateless-authentication',
+    category: 'security',
+    refs: [{
+      title: 'JWT.io',
+      url: 'https://jwt.io/'
+    }],
+    do: {
+      description: 'Use JWT for stateless authentication with proper expiration.',
+      codes: [
+        'const jwt = require("jsonwebtoken");',
+        '',
+        'function generateToken(user) {',
+        '  return jwt.sign(',
+        '    { userId: user.id, email: user.email },',
+        '    process.env.JWT_SECRET,',
+        '    { expiresIn: "1h" }',
+        '  );',
+        '}',
+        '',
+        'function verifyToken(token) {',
+        '  return jwt.verify(token, process.env.JWT_SECRET);',
+        '}',
+      ]
+    },
+    dont: {
+      description: 'Avoid storing sensitive data in JWT or using weak secrets.',
+      codes: [
+        '// Don\'t store sensitive data',
+        'const token = jwt.sign({',
+        '  password: user.password, // Never!',
+        '  secret: "weak-secret" // Use strong secret',
+        '});',
+      ]
+    }
+  },
+  {
+    title: 'Use Input Validation with Joi',
+    slug: 'use-input-validation-with-joi',
+    category: 'security',
+    refs: [{
+      title: 'Joi',
+      url: 'https://joi.dev/'
+    }],
+    do: {
+      description: 'Use Joi for comprehensive input validation and sanitization.',
+      codes: [
+        'const Joi = require("joi");',
+        '',
+        'const userSchema = Joi.object({',
+        '  name: Joi.string().min(2).max(50).required(),',
+        '  email: Joi.string().email().required(),',
+        '  age: Joi.number().integer().min(0).max(120)',
+        '});',
+        '',
+        'function validateUser(userData) {',
+        '  const { error, value } = userSchema.validate(userData);',
+        '  if (error) throw new Error(error.details[0].message);',
+        '  return value;',
+        '}',
+      ]
+    },
+    dont: {
+      description: 'Avoid accepting user input without validation.',
+      codes: [
+        '// No validation',
+        'app.post("/users", (req, res) => {',
+        '  const { name, email, age } = req.body;',
+        '  // Direct use without validation',
+        '  createUser({ name, email, age });',
+        '});',
+      ]
+    }
   }
 ];
 
